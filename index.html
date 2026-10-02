@@ -1,34 +1,415 @@
-<!<!DOCTYPE html>
-  <head>
-    <title>Ал багынды сынап кор))</title>
-    <body bgcolor=FFF8DC>
-    <<meta charset="utf-8" >
-<meta name="keywords:" content="мой сайт, html, привет бро">
-<meta name="description" content="'Это сайт Лейлы">
-  </head>
-<img src="12.lnk" width="150" height="200">
-  <body>
-<br>Введи день когда мы встретились впервые:<br>
-  </body>
-  <input type="month"
-  <body>
-<br>Введи день когда мы начали встречаться:<br><br>
-  </body>
-  <input type="month">
-  <body>
-<br>Введи мой любимый цвет:<br>
-  </body>
-  <input type="text">
-  <body>
-<br>Введи мой любимый сериал:<br><br><br>
-  </body>
-  <input type="text">
-  <body>
-<br>Введи мои любимые цветы:<br><br>
-  </body>
-  <input type="text">
-  <body>
-Введи мой любимый праздник:<br>
-  </body>
-  <input type="text">
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IELTS для магистратуры США</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#1b2230; --muted:#5b6475; --line:#dde1e8; --soft:#eef0f4;
+  --accent:#2f5bd3;
+  --ok:#1f7a4d; --ok-bg:#e3f3ea; --chk:#9a6200; --chk-bg:#fbf0d9; --no:#b3261e; --no-bg:#fbe5e3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12151b; --surface:#1a1e26; --ink:#e7eaf0; --muted:#9aa3b3; --line:#2c323d; --soft:#222733;
+    --accent:#7d9bff;
+    --ok:#6fd3a0; --ok-bg:#16301f; --chk:#f0c065; --chk-bg:#33280f; --no:#ff8a80; --no-bg:#3a1a18;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12151b; --surface:#1a1e26; --ink:#e7eaf0; --muted:#9aa3b3; --line:#2c323d; --soft:#222733;
+  --accent:#7d9bff;
+  --ok:#6fd3a0; --ok-bg:#16301f; --chk:#f0c065; --chk-bg:#33280f; --no:#ff8a80; --no-bg:#3a1a18;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 "Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:22px}
+h1{font-size:clamp(24px,4vw,34px);line-height:1.15;margin:0;font-weight:700;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:17px;margin:0 0 8px;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--muted)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.scores{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.band{display:inline-flex;gap:6px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+.band b{font-family:"JetBrains Mono",monospace;font-size:15px}
+.band span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.band.weak{border-color:var(--chk)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.panel ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.count{display:flex;align-items:baseline;gap:10px}
+.count b{font-family:"JetBrains Mono",monospace;font-size:28px;line-height:1}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.p-ok{background:var(--ok-bg);color:var(--ok)} .p-chk{background:var(--chk-bg);color:var(--chk)} .p-no{background:var(--no-bg);color:var(--no)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:6px 12px;cursor:pointer}
+.tools button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
+.tools input{font:inherit;font-size:14px;flex:1 1 220px;min-width:0;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:6px 10px}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:1400px;font-size:14px}
+td.why{min-width:260px}
+.v{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid var(--line);margin-bottom:4px;white-space:nowrap}
+.v-main{border-color:var(--ok);color:var(--ok)} .v-go{border-color:var(--accent);color:var(--accent)} .v-dream{border-color:var(--chk);color:var(--chk)} .v-back{color:var(--muted)} .v-skip{border-color:var(--no);color:var(--no)}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;background:var(--soft);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.uni{font-weight:600;min-width:150px}
+td.num{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.note{color:var(--muted);min-width:240px}
+td a{color:var(--accent);text-decoration:none;word-break:break-all;font-size:13px}
+td a:hover{text-decoration:underline}
+.small{font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:10px">
+    <h1>IELTS для магистратуры США: вузы из списка Болашака</h1>
+    <p class="lede">Требования к IELTS для магистратуры по CS / AI / Data Science в американских вузах из перечня «Болашак-2026» и то, проходят ли ваши баллы. Данные собраны с официальных страниц вузов в сентябре 2026 года.</p>
+    <div class="scores" aria-label="Ваши баллы">
+      <div class="band"><span>Listening</span><b>7.5</b></div>
+      <div class="band"><span>Reading</span><b>7.5</b></div>
+      <div class="band weak"><span>Writing</span><b>6.0</b></div>
+      <div class="band"><span>Speaking</span><b>5.5 → 6.5*</b></div>
+      <div class="band"><span>Overall</span><b>6.5 → 7.0*</b></div>
+    </div>
+    <p class="small">* One Skill Retake от 28 сентября 2026: speaking 6.5, overall 7.0. Исходный сертификат: speaking 5.5, overall 6.5.</p>
+  </header>
+
+  <section class="cols" aria-label="Итоги">
+    <div class="panel">
+      <div class="count"><b id="c-ok">0</b><span class="pill p-ok">Проходите</span></div>
+      <p class="small">Проходите с одним из двух сертификатов. Во многих вузах хватает даже исходного (overall 6.5), и пересдача не нужна.</p>
+    </div>
+    <div class="panel">
+      <div class="count"><b id="c-chk">0</b><span class="pill p-chk">Уточнить</span></div>
+      <p class="small">Баллы подходят только по сертификату One Skill Retake, а вуз о нём не пишет. Или минимум зависит от программы, либо это нужно проверить в приёмной комиссии.</p>
+    </div>
+    <div class="panel">
+      <div class="count"><b id="c-no">0</b><span class="pill p-no">Не проходите</span></div>
+      <p class="small">Retake не принимают, а исходного 6.5 мало. Или требуют writing выше 6.0, или overall 7.5.</p>
+    </div>
+  </section>
+
+  <section class="cols">
+    <div class="panel">
+      <h2>Два сертификата, два расчёта</h2>
+      <ul>
+        <li><b>Исходный:</b> overall 6.5, speaking 5.5. Его примут везде, где минимум 6.5 и нет требований по секциям.</li>
+        <li><b>С пересдачей:</b> overall 7.0, speaking 6.5. Он работает только там, где принимают One Skill Retake.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Главное ограничение: writing 6.0</h2>
+      <p>Беркли, Питтсбург (CS), Вирджиния (engineering) и UF (CISE) требуют 6.5 и выше по writing. Если целитесь в них, придётся пересдавать тест целиком с упором на writing.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Куда я бы подавала в первую очередь</h2>
+    <ul>
+      <li><b>Главные цели</b> (сильный CS и ваши баллы проходят): UT Austin, University of Michigan, Purdue, University of Maryland, UMass Amherst.</li>
+      <li><b>Сильные варианты с хорошими шансами:</b> Ohio State, Penn State, Minnesota, Arizona State, Virginia Tech, Texas A&amp;M, CU Boulder, Utah, WashU, Indiana, University of Georgia.</li>
+      <li><b>Мечта</b> (топ-вузы, но нужна пересдача и уточнение по retake): Stanford, Cornell, Georgia Tech, UCSD, UCLA, Columbia, Northwestern.</li>
+      <li>Для стратегии обычно берут 2–3 «мечты», 4–5 главных целей и 2–3 запасных.</li>
+    </ul>
+    <p class="small">Уровень CS указан примерно, по рейтингу US News Best CS Graduate Programs, «QS топ-100» — по мировому рейтингу QS. Точные места меняются каждый год, поэтому здесь диапазоны, а не номера.</p>
+  </section>
+
+  <section class="panel" id="plan">
+    <h2>План подачи: 10 вузов</h2>
+    <p>Гарантии в 100% не даёт ни один набор вузов: решение принимает комиссия, и оно зависит от GPA, мотивационного письма и рекомендаций. Шансы повышает правильная раскладка: 2 амбициозных вуза, 5 основных и 3 надёжных. С таким набором очень вероятно получить хотя бы одно, а скорее несколько безусловных приглашений. Больше 10–12 заявок обычно не нужно: качество писем начинает падать.</p>
+    <div class="tablebox"><table style="min-width:720px">
+      <thead><tr><th>Группа</th><th>Вуз</th><th>Дедлайн</th><th>Подать до</th><th>Сбор за подачу</th></tr></thead>
+      <tbody>
+        <tr><td><span class="v v-dream">Амбициозный</span></td><td class="uni">UT Austin</td><td class="num">15 дек</td><td class="num">8 дек</td><td class="num">$90</td></tr>
+        <tr><td><span class="v v-dream">Амбициозный</span></td><td class="uni">University of Michigan</td><td class="num">15 янв</td><td class="num">5 янв</td><td class="num">$90</td></tr>
+        <tr><td><span class="v v-main">Основной</span></td><td class="uni">Purdue University</td><td class="num">1 дек</td><td class="num">24 ноя</td><td class="num">$75</td></tr>
+        <tr><td><span class="v v-main">Основной</span></td><td class="uni">University of Maryland</td><td class="num">4 дек</td><td class="num">27 ноя</td><td class="num">$90</td></tr>
+        <tr><td><span class="v v-main">Основной</span></td><td class="uni">UMass Amherst</td><td class="num">15 дек</td><td class="num">8 дек</td><td class="num">$90</td></tr>
+        <tr><td><span class="v v-main">Основной</span></td><td class="uni">Ohio State University</td><td class="num">14 ноя (fellowship) / 15 дек</td><td class="num">10 ноя</td><td class="num">$70</td></tr>
+        <tr><td><span class="v v-main">Основной</span></td><td class="uni">Penn State</td><td class="num">20 дек</td><td class="num">12 дек</td><td class="num">$85</td></tr>
+        <tr><td><span class="v v-back">Надёжный</span></td><td class="uni">Arizona State University</td><td class="num">1 дек</td><td class="num">24 ноя</td><td class="num">$120</td></tr>
+        <tr><td><span class="v v-back">Надёжный</span></td><td class="uni">University of Utah</td><td class="num">15 дек</td><td class="num">8 дек</td><td class="num">$65</td></tr>
+        <tr><td><span class="v v-back">Надёжный</span></td><td class="uni">Indiana University Bloomington</td><td class="num">1 мар</td><td class="num">10 янв</td><td class="num">$70</td></tr>
+        <tr><td></td><td class="uni">Итого сборы</td><td></td><td></td><td class="num"><b>$845</b></td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Запасные замены, если захочется поменять вуз: Texas A&amp;M ($148 через EngineeringCAS, дедлайн 15 янв), Minnesota ($95, 5 янв / 1 мар), Virginia Tech ($75, 1 дек), University of Georgia ($75, 15 апр), Duke ($105, 1 фев). Кроме сборов заложите примерно $100–200 на перевод и нотариальное заверение документов. Отправка IELTS через портал в части центров платная сверх лимита, уточните в своём центре.</p>
+
+    <h2 style="margin-top:10px">По неделям</h2>
+    <div class="tablebox"><table style="min-width:640px">
+      <thead><tr><th>Когда</th><th>Что сделать</th></tr></thead>
+      <tbody>
+        <tr><td class="num"><b>29 сен – 12 окт</b></td><td>Speaking retake готов: 6.5, overall 7.0. Записаться на КАЗТЕСТ (нужен B1 для Болашака). Заказать в КазНУ транскрипт на английском. Попросить 3 рекомендации: 2 преподавателя КазНУ и руководитель или заказчик по работе. Обновить CV: QADAM, BestFit 360, DentApp, ML Product Lab.</td></tr>
+        <tr><td class="num"><b>13 окт – 2 ноя</b></td><td>Написать базовое мотивационное письмо (Statement of Purpose): почему ML/AI, ваш опыт с AI-продуктами, какие цели после учёбы в Казахстане. Создать аккаунты в порталах всех 10 вузов. Отправить официальный IELTS в каждый вуз.</td></tr>
+        <tr><td class="num"><b>3 – 10 ноя</b></td><td>Подать Ohio State, чтобы вас рассмотрели на fellowship.</td></tr>
+        <tr><td class="num"><b>11 – 27 ноя</b></td><td>Подать Purdue, Arizona State и University of Maryland. Для каждого вуза адаптировать письмо: назвать 1–2 профессора и курсы по ML.</td></tr>
+        <tr><td class="num"><b>28 ноя – 12 дек</b></td><td>Подать UT Austin, UMass Amherst, Utah и Penn State. Проверить, что все рекомендации загружены.</td></tr>
+        <tr><td class="num"><b>до 10 янв</b></td><td>Подать Michigan и Indiana.</td></tr>
+        <tr><td class="num"><b>фев – апр 2027</b></td><td>Приходят решения. Возможны интервью. Выбрать вуз с безусловным приглашением, сделать нотариальный перевод приглашения и подать документы в Болашак по его графику приёма.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="panel" id="cal">
+    <h2>Дедлайны подачи на осень 2027</h2>
+    <p class="small">Здесь 24 вуза из групп «Главная цель» и «Стоит подать», отсортированы по дате. Указан дедлайн магистратуры по CS (или близкой программы) для иностранных студентов. Где на сайте программы стоит только число без года, я считаю, что оно повторяется каждый год, и помечаю это «ежегодно». Подавайте за 1–2 недели до даты: рекомендации и официальный отчёт IELTS тоже должны успеть дойти.</p>
+    <div class="tablebox"><table style="min-width:640px"><thead><tr><th>Дедлайн</th><th>Вуз</th><th>Программа и детали</th></tr></thead><tbody id="dl"></tbody></table></div>
+  </section>
+
+  <div class="tools" role="toolbar" aria-label="Фильтр">
+    <button type="button" data-f="all" aria-pressed="true">Все</button>
+    <button type="button" data-v="Главная цель" aria-pressed="false">Главные цели</button>
+    <button type="button" data-v="Стоит подать" aria-pressed="false">Стоит подать</button>
+    <button type="button" data-v="Мечта" aria-pressed="false">Мечта</button>
+    <button type="button" data-f="ok" aria-pressed="false">Проходите</button>
+    <button type="button" data-f="chk" aria-pressed="false">Уточнить</button>
+    <button type="button" data-f="no" aria-pressed="false">Не проходите</button>
+    <input id="q" type="search" placeholder="Поиск по названию" aria-label="Поиск по названию">
+  </div>
+
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Вуз</th><th>Стоит ли подавать</th><th>Штат, город</th><th>Уровень CS в США</th><th>QS топ-100</th><th>Мин. overall</th><th>По секциям</th><th>One Skill Retake</th><th>Статус</th><th>Комментарий</th><th>Источник</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <section class="panel">
+    <h2>Что не проверялось</h2>
+    <p class="small">Из списка исключены вузы без магистратуры по CS / AI / Data Science: школы искусств, музыки и медицины (NYFA, UCSF, CalArts, SVA, ArtCenter, Curtis, Juilliard, Pratt, RISD, SAIC, SCAD).</p>
+    <p class="small">Требования меняются от цикла к циклу и зависят от конкретной программы. Прежде чем подавать документы, откройте страницу программы или напишите в admissions: <i>«Do you accept IELTS One Skill Retake results?»</i></p>
+  </section>
+</div>
+
+<script>
+const D=[
+["Arizona State University","6.5","—","не указано","ok","Исходный сертификат 6.5 подходит.","https://admission.asu.edu/apply/international/graduate/english-proficiency"],
+["Brown University","7.0 (рекоменд.)","—","не указано","chk","7.0 только с пересдачей. Минимум рекомендательный.","https://graduateschool.brown.edu/apply/international-applicants/language-proficiency-toefl-or-ielts"],
+["Caltech","не опубликован","—","не указано","chk","Официального минимума нет, по неофициальным данным 7.0.","https://gradoffice.caltech.edu/admissions/faq-applicants"],
+["Carnegie Mellon","7.5 (SCS)","рекоменд. 7.5 каждая","не указано","no","Для программ SCS нужно 7.5. В других департаментах минимум 6.5–7.0.","https://www.cmu.edu/bme/Admissions/additional-requirements.html"],
+["Case Western Reserve","7.0","—","не принимают","no","Retake не принимают. Для course-focused engineering MS минимум 6.5, туда подходит исходный.","https://case.edu/gradstudies/prospective-students/instructions-requirements"],
+["Colorado School of Mines","6.5","каждая ≥ 6.0","не указано","chk","В исходном speaking 5.5 ниже порога. Нужен retake, его принятие не указано.","https://gradprograms.mines.edu/admissions-requirements/"],
+["Colorado State University","6.5","—","принимают","ok","Проходите даже с исходным. Retake принимают официально.","https://catalog.colostate.edu/general-catalog/graduate-bulletin/admissions-requirements-procedures/"],
+["Columbia University","нет минимума","—","не указано","chk","В Columbia Engineering формального минимума нет.","https://www.gradengineering.columbia.edu/faq/standardized-test-scores"],
+["Cornell University","7.0","—","Cornell Tech — нет","chk","Ithaca: 7.0, про retake не пишут. Cornell Tech retake не принимает.","https://tech.cornell.edu/admissions/admissions-faqs/"],
+["Dartmouth College","не опубликован","—","не указано","chk","Guarini не публикует минимум. Нужно спросить программу.","https://graduate.dartmouth.edu/admissions/applying-dartmouth/admissions-information"],
+["Duke University","7.0","—","не указано","chk","7.0 только с пересдачей.","https://gradschool.duke.edu/admissions/admissions-faqs/"],
+["Emory University","7.0","—","не указано","chk","Data Science: 7.0.","https://datascience.emory.edu/graduate/admissions/requirements.html"],
+["Florida International University","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://business.fiu.edu/academics/graduate/international-students/english-proficiency-requirements/"],
+["Florida State University","6.5","—","не указано","ok","Исходный 6.5 подходит. CS тоже 6.5.","https://www.cs.fsu.edu/admissions/graduate-admissions/applying-international/"],
+["George Mason University","6.5","—","принимают","ok","College of Engineering and Computing: 6.5 без требований по секциям.","https://www.gmu.edu/international/english-language-requirements"],
+["Georgetown University","7.0 (CS) / 7.5 (DS)","—","не указано","chk","На CS нужно 7.0 и пересдача. На Data Science нужно 7.5, туда не проходите.","https://grad.georgetown.edu/admissions/application-information/"],
+["Georgia Tech","7.0","R/L/S ≥ 6.5, W ≥ 5.5","не указано","chk","Speaking 6.5 теперь есть, но только в сертификате retake. Принимают ли его, не указано.","https://grad.gatech.edu/faq/knowledgebase.php?category=20"],
+["Harvard University","7.0","speaking ≥ 6.5","не указано","chk","7.0 и speaking 6.5 теперь есть, но только в сертификате retake. Принимают ли его, не указано.","https://seas.harvard.edu/prospective-students/prospective-graduate-students/frequently-asked-questions-faqs-graduate"],
+["Indiana University Bloomington","6.5","—","не указано","ok","Исходный 6.5 подходит. В отдельных программах минимум выше.","https://ielts.org/receiving-organisations/indiana-university-bloomington"],
+["Iowa State University","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.grad-college.iastate.edu/handbook/chapter1-admissions"],
+["Johns Hopkins University","7.0","—","не указано","chk","Whiting School of Engineering: 7.0.","https://msem.engineering.jhu.edu/msem-admissions/application-requirements/"],
+["Kansas State University","6.5","ECE: R/L/W ≥ 6.5","не указано","ok","Graduate School: 6.5. На ECE нужен writing 6.5, туда не проходите.","https://ece.k-state.edu/academics/graduate/admission/application-faq/"],
+["Michigan State University","6.5","каждая ≥ 6.0","не указано","chk","В исходном speaking 5.5 ниже порога. Нужен retake.","https://online.egr.msu.edu/admission/international-students"],
+["MIT","7.0","—","не принимают","no","MIT прямо пишет, что One Skill Retake не принимает.","https://oge.mit.edu/graduate-admissions/applications/standardized-tests/ielts/"],
+["New Mexico Tech","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.nmt.edu/gradstudies/EnglishReqs.php"],
+["NC State University","6.5","есть минимум по секциям","не указано","chk","Минимумы по секциям указаны в каталоге. Проверьте speaking.","https://catalog.ncsu.edu/graduate/graduate-handbook/international-student-admissions/"],
+["Northeastern University","6.5 (CoE) / ~7.0 (Khoury)","—","Khoury не суперскорит","chk","College of Engineering: подходит исходный. Khoury (CS/DS): нужен полный тест на 7.0.","https://www.khoury.northeastern.edu/apply/masters-apply/"],
+["Northwestern University","7.0","—","не указано","chk","7.0 только с пересдачей.","https://www.mccormick.northwestern.edu/electrical-computer/academics/graduate/admissions/admissions-faq.html"],
+["NYU","7.0","—","GSAS пересылает, Tandon —?","chk","Tandon: 7.0. GSAS пересылает retake на департамент.","https://engineering.nyu.edu/admissions/graduate/apply/requirements/english-language-proficiency-testing"],
+["Ohio State University","6.5","—","не принимают","ok","Исходный 6.5 проходит минимум. ECE предпочитает 7.5.","https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html"],
+["Oregon State University","6.5","инженерия: ≥ 6.0","не указано","chk","Graduate School: 6.5. В инженерии минимум 6.0 по секциям, speaking 5.5 не проходит.","https://engineering.oregonstate.edu/CCE/academics/graduate-academics/frequently-asked-questions-prospective-graduate-students"],
+["Penn State","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://gradschool.psu.edu/graduate-education-policies/gcac/gcac-300/gcac-305-admission-requirements-international-students"],
+["Princeton University","нет общего","CS MSE: speaking 8.0","не указано","no","CS master's требует speaking 8.","https://www.cs.princeton.edu/grad/faq"],
+["Purdue University","6.5","—","не принимают","ok","Retake не принимают, но исходный 6.5 проходит минимум.","https://www.purdue.edu/academics/ogsps/admissions/admission-requirements/"],
+["Rice University","7.0","—","не указано","chk","7.0 только с пересдачей.","https://graduate.rice.edu/admissions/language-proficiency-requirements"],
+["Rutgers (New Brunswick)","~7.0","зависит от программы","не указано","chk","Минимум зависит от программы.","https://grad.rutgers.edu/admissions/international-students"],
+["Stanford University","7.0","—","не указано","chk","7.0 — минимум университета, в программах может быть выше.","https://ee.stanford.edu/admissions/official-materials"],
+["Syracuse University","~6.5 (CS)","iSchool: каждая ≥ 6.5","не указано","chk","Официальный минимум для ECS не опубликован.","https://ielts.org/receiving-organisations/syracuse-university"],
+["Texas A&M University","6.0","—","не принимают","ok","Retake не принимают, но исходный 6.5 выше минимума.","https://admissions.tamu.edu/apply/international/international-graduate.html"],
+["Texas Tech University","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.depts.ttu.edu/gradschool/admissions/InternationalProspectiveStudents.php"],
+["The New School","7.0","—","не указано","chk","Магистратуры по CS нет.","https://ielts.org/receiving-organisations/new-school-the"],
+["Tufts University","6.5–7.0","—","не указано","ok","Arts, Sciences & Engineering: 6.5, подходит исходный. На части программ 7.0.","https://takeielts.britishcouncil.org/tufts-university"],
+["UC Berkeley","7.0","S и W ≥ 6.5","не принимают","no","Нужен writing 6.5, а retake не принимают.","https://grad.berkeley.edu/admissions/application-process/requirements/"],
+["UC Irvine","7.0","каждая ≥ 6.0","не указано","chk","Нужны 7.0 и пересдача.","https://grad.uci.edu/admissions/faq"],
+["UCLA","7.0","—","не указано","chk","Учитывается только самый свежий результат.","https://grad.ucla.edu/admissions/english-requirements/"],
+["UC San Diego","7.0","—","не указано","chk","7.0 только с пересдачей.","https://grad.ucsd.edu/admissions/requirements/international-students/english-proficiency.html"],
+["UC Santa Barbara","7.0","—","не принимают","no","Retake не принимают, исходного 6.5 мало.","https://www.graddiv.ucsb.edu/admissions/faqs-applicants"],
+["UC Santa Cruz","7.0","—","принимают","ok","Retake принимают, если отправить и исходный отчёт.","https://graduateadmissions.ucsc.edu/test-score-requirements/"],
+["UCF (Central Florida)","7.0","—","не указано","chk","7.0 только с пересдачей.","https://graduate.ucf.edu/application-deadlines-and-requirements/masters/2026/"],
+["UNLV","6.5 / 7.0 (инженерия)","каждая ≥ 6.0","не указано","chk","Инженерный колледж требует 7.0.","https://www.unlv.edu/engineering/iep/graduate"],
+["University at Buffalo","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.buffalo.edu/grad/explore/admissions/requirements.html"],
+["University of Arizona","7.0","каждая ≥ 6.0","не принимают","no","Retake пока не принимают.","https://grad.arizona.edu/admissions/requirements/international-applicants"],
+["University of Chicago","~7.0, по программам","у части программ 7.0 каждая","принимают","chk","Retake принимают вместе с исходным. Проверьте, нет ли требования 7.0 по каждой секции.","https://grad.uchicago.edu/admissions/apply/english-language-requirements/"],
+["University of Colorado Boulder","~6.0–6.5","—","не указано","ok","Минимум Graduate School 6.0–6.5, в программах может быть выше.","https://www.colorado.edu/graduateschool/admissions/where-begin/international-students"],
+["University of Florida","6.5 / 7.5 (CISE)","CISE: R/L/S 6.5, W 5.5","не указано","no","CS (CISE): 7.5. В других программах 6.5.","https://cise.ufl.edu/admissions/graduate/"],
+["University of Georgia","6.5","каждая ≥ 6.0","принимают","ok","С retake проходите: speaking 6.5, overall 7.0.","https://grad.uga.edu/admissions/requirements/international-applications/english-language-proficiency-requirement/"],
+["University of Hawaii at Manoa","~6.5","—","принимают","ok","Retake и superscore принимают официально.","https://manoa.hawaii.edu/graduate/english-proficiency-exemption-eligibility/"],
+["University of Houston","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.ece.uh.edu/graduate/admission-guidelines"],
+["University of Illinois Chicago","6.5","каждая ≥ 6.0","не указано","chk","В исходном speaking 5.5 ниже порога. Нужен retake.","https://grad.uic.edu/admissions/degree-admission/domestic-admission/admission-status/"],
+["UIUC (Urbana-Champaign)","6.5 (ECE)","ECE: каждая ≥ 6.0","не принимают","no","Retake не принимают, а в исходном speaking 5.5.","https://grad.illinois.edu/admissions/international-applicants"],
+["University of Iowa","7.0","каждая ≥ 6.0","не указано","chk","7.0 только с пересдачей.","https://cs.uiowa.edu/graduate/admissions"],
+["University of Maryland","7.0 (full)","есть секционные","принимают","ok","Retake принимают и суперскорят секции. При слабом writing бывает условный курс.","https://gradschool.umd.edu/admissions/english-language-proficiency-requirements"],
+["UMass Amherst","6.5","—","не принимают","ok","Retake не принимают, но исходный 6.5 проходит.","https://www.umass.edu/graduate/apply/international-applicants"],
+["University of Miami","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.grad.miami.edu/graduate-education/international-credentials-and-applicants/index.html"],
+["University of Michigan","6.5 (Rackham)","—","не указано","ok","Rackham и College of Engineering: 6.5. School of Information: 7.0.","https://takeielts.britishcouncil.org/university-michigan-ann-arbor"],
+["University of Minnesota","6.5","—","не принимают","ok","Retake не принимают, но исходный 6.5 проходит минимум.","https://grad.umn.edu/admissions/application-instructions/international-student-resources/english-language-proficiency"],
+["University of Missouri","по программам","—","не указано","chk","Минимум Graduate School низкий, программы ставят свой, обычно около 6.5.","https://gradschool.missouri.edu/admissions/eligibility-process/international-applicants/"],
+["University of Nebraska-Lincoln","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://graduate.unl.edu/admissions/english-proficiency"],
+["University of Nevada, Reno","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.unr.edu/grad/admissions/requirements/international"],
+["UNC Chapel Hill","~7.0","—","не принимают","no","Retake прямо не принимают.","https://gradschool.unc.edu/admissions/instructions/"],
+["University of Notre Dame","7.0","—","не указано","chk","7.0 только с пересдачей.","https://graduateschool.nd.edu/admissions/faq/"],
+["University of Pennsylvania","7.5 (рекоменд.)","—","не указано","chk","SEAS рекомендует 7.5, но строгого минимума нет.","https://gradadm.seas.upenn.edu/faq/"],
+["University of Pittsburgh","7.0 (CS)","CS: каждая ≥ 6.5","не указано","no","Для CS нужен writing 6.5. DINS: 6.5 без секций.","https://www.sci.pitt.edu/admissions/graduate-admissions-faqs"],
+["University of Rochester","по департаментам","—","не указано","chk","ECE рекомендует 7.5.","https://www.hajim.rochester.edu/ece/graduate/applying.html"],
+["University of South Carolina","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://sc.edu/study/colleges_schools/graduate_school/apply/international_applicants/"],
+["University of South Florida","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://www.usf.edu/admissions/international/admission-information/graduate/academic-requirements.aspx"],
+["University of Tennessee, Knoxville","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://gradschool.utk.edu/future-students/office-of-graduate-admissions/applying-to-graduate-school/admission-requirements/testing-requirements/"],
+["UT Austin","6.5","—","не указано","ok","Исходный 6.5 подходит, в том числе на CS.","https://www.cs.utexas.edu/faq/742"],
+["University of Utah","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://games.utah.edu/international-student-application-information/"],
+["University of Virginia","6.5 каждая (инж.)","каждая ≥ 6.5","не указано","no","В инженерии нужно 6.5 по каждой секции, writing 6.0 не проходит.","https://engineering.virginia.edu/graduate-study/future-grad-students/graduate-admission/graduate-admissions-frequently-asked-questions"],
+["University of Washington","7.0","—","не принимают","no","Retake не принимают.","https://grad.uw.edu/policy_topics/english-language-proficiency/"],
+["UW-Madison","7.0","—","не принимают","no","Retake не принимают.","https://grad.wisc.edu/apply/requirements/"],
+["Vanderbilt University","7.0","—","не указано","chk","Engineering и CS: 7.0.","https://engineering.vanderbilt.edu/graduate-admissions/"],
+["Virginia Tech","6.5","—","не указано","ok","Исходный 6.5 подходит.","https://graduateschool.vt.edu/admissions/how-to-apply/testing-requirements.html"],
+["WashU (St. Louis)","6.5","—","вероятно нет","ok","Суперскоры не принимают, но исходный 6.5 проходит.","https://oiss.washu.edu/english-proficiency-requirements/"],
+["Yale University","нет общего","—","не принимают","chk","Retake не принимают. Общего минимума нет, и можно подать исходный 6.5.","https://gsas.yale.edu/admissions/phdmasters-application-process/standardized-testing-requirements"]
+];
+// [штат/город, уровень CS, QS топ-100, вердикт, почему]
+const M={
+"Arizona State University":["Аризона, Темпе (Финикс)","топ-50","нет","Стоит подать","Большой сильный CS, много программ по AI. Баллы проходят. Жарко, жизнь недорогая."],
+"Brown University":["Род-Айленд, Провиденс","топ-25","да","Мечта","Лига плюща, сильный CS, но маленькая магистратура. Нужна пересдача и 7.0."],
+"Caltech":["Калифорния, Пасадена","топ-10","да","Не стоит","Магистратуры по CS фактически нет, берут в основном на PhD."],
+"Carnegie Mellon":["Пенсильвания, Питтсбург","№1–3","да","Не стоит","Лучший AI/ML в мире, но нужен IELTS 7.5. Сейчас не проходите."],
+"Case Western Reserve":["Огайо, Кливленд","топ-75","нет","Запасной","Средний CS. Retake не принимают, а для CS нужно 7.0."],
+"Colorado School of Mines":["Колорадо, Голден (Денвер)","топ-100","нет","Запасной","Сильный инженерный вуз, но CS/AI не его главная сторона."],
+"Colorado State University":["Колорадо, Форт-Коллинз","топ-100","нет","Запасной","Надёжно проходите, retake принимают. CS среднего уровня."],
+"Columbia University":["Нью-Йорк, Манхэттен","топ-20","да","Мечта","Лига плюща, сильный ML, Нью-Йорк. Очень дорогая жизнь."],
+"Cornell University":["Нью-Йорк, Итака","топ-10","да","Мечта","Топ-10 CS и Лига плюща. Нужна пересдача. Cornell Tech retake не берёт."],
+"Dartmouth College":["Нью-Гэмпшир, Ганновер","топ-50","нет","Не стоит","Лига плюща, но CS небольшой, городок маленький и изолированный."],
+"Duke University":["Сев. Каролина, Дарем","топ-30","да","Стоит подать","Очень престижный вуз, хорошие программы по AI и Data Science. Нужны 7.0."],
+"Emory University":["Джорджия, Атланта","топ-75","нет","Запасной","Сильный вуз в целом, но CS не топ."],
+"Florida International University":["Флорида, Майами","топ-100","нет","Запасной","Баллы проходят, но уровень CS невысокий."],
+"Florida State University":["Флорида, Таллахасси","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"George Mason University":["Вирджиния, Фэрфакс (у Вашингтона)","топ-75","нет","Запасной","Retake принимают официально. CS средний, но рядом много IT-работы."],
+"Georgetown University":["Вашингтон, округ Колумбия","топ-100","нет","Не стоит","Престижный, но силён в политике и праве, а не в CS."],
+"Georgia Tech":["Джорджия, Атланта","топ-10","да","Мечта","Топ-10 CS, сильный ML. Speaking 6.5 теперь есть, но retake не подтверждён."],
+"Harvard University":["Массачусетс, Кембридж (Бостон)","топ-20","да","Мечта","Самый известный бренд, 7.0 и speaking 6.5 есть, но retake не подтверждён. Магистратура по CS маленькая."],
+"Indiana University Bloomington":["Индиана, Блумингтон","топ-50","нет","Стоит подать","Хорошая школа Luddy с программами по Data Science. Баллы проходят, городок недорогой."],
+"Iowa State University":["Айова, Эймс","топ-100","нет","Запасной","Баллы проходят, CS средний, маленький город."],
+"Johns Hopkins University":["Мэриленд, Балтимор","топ-25","да","Мечта","Сильный бренд, хорошие программы по AI. Нужны 7.0."],
+"Kansas State University":["Канзас, Манхэттен","топ-150","нет","Не стоит","Баллы проходят, но CS слабый."],
+"Michigan State University":["Мичиган, Ист-Лансинг","топ-75","нет","Запасной","Большой вуз. Нужен retake из-за speaking."],
+"MIT":["Массачусетс, Кембридж (Бостон)","№1–3","да","Не стоит","Лучший в мире, но retake не принимают. Магистратуры по CS как отдельной почти нет."],
+"New Mexico Tech":["Нью-Мексико, Сокорро","ниже 100","нет","Не стоит","Маленький технический вуз, CS слабый."],
+"NC State University":["Сев. Каролина, Роли","топ-50","нет","Стоит подать","Хороший CS, IT-кластер Research Triangle рядом."],
+"Northeastern University":["Массачусетс, Бостон","топ-30","нет","Стоит подать","Сильный Khoury College и программа co-op со стажировками. Для CS нужен полный тест 7.0."],
+"Northwestern University":["Иллинойс, Эванстон (Чикаго)","топ-30","да","Мечта","Очень престижный. Нужны 7.0 и пересдача."],
+"NYU":["Нью-Йорк","топ-25","да","Стоит подать","Хорошие программы по CS и Data Science, Нью-Йорк. Дорогая жизнь."],
+"Ohio State University":["Огайо, Колумбус","топ-40","нет","Стоит подать","Большой хороший вуз, баллы проходят. Колумбус недорогой."],
+"Oregon State University":["Орегон, Корваллис","топ-75","нет","Запасной","Средний CS. Для инженерии нужен speaking 6.0."],
+"Penn State":["Пенсильвания, Юниверсити-Парк","топ-40","нет","Стоит подать","Хороший CS, баллы проходят. Студенческий городок."],
+"Princeton University":["Нью-Джерси, Принстон","топ-10","да","Не стоит","Для магистратуры по CS нужен speaking 8.0."],
+"Purdue University":["Индиана, Уэст-Лафейетт","топ-20","около 100","Главная цель","Топ-20 CS, отличная репутация у работодателей. Исходного 6.5 хватает."],
+"Rice University":["Техас, Хьюстон","топ-30","нет","Стоит подать","Престижный частный вуз, хорошие программы по Data Science. Нужны 7.0."],
+"Rutgers (New Brunswick)":["Нью-Джерси, Нью-Брансуик","топ-40","нет","Стоит подать","Хороший CS рядом с Нью-Йорком."],
+"Stanford University":["Калифорния, Стэнфорд (Кремниевая долина)","№1–3","да","Мечта","Лучшее место для AI. Конкурс огромный, нужна пересдача, жизнь очень дорогая."],
+"Syracuse University":["Нью-Йорк, Сиракьюс","топ-100","нет","Запасной","Средний CS, холодная зима."],
+"Texas A&M University":["Техас, Колледж-Стейшн","топ-30","нет","Стоит подать","Хороший CS, огромная сеть выпускников. Баллы проходят."],
+"Texas Tech University":["Техас, Лаббок","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"The New School":["Нью-Йорк","—","нет","Не стоит","Дизайн и гуманитарные науки. Магистратуры по CS нет."],
+"Tufts University":["Массачусетс, Медфорд (Бостон)","топ-75","нет","Запасной","Хороший частный вуз, но CS небольшой."],
+"UC Berkeley":["Калифорния, Беркли","топ-3","да","Не стоит","Один из лучших, но нужен writing 6.5, а retake не принимают."],
+"UC Irvine":["Калифорния, Ирвайн","топ-30","нет","Стоит подать","Хороший CS в Калифорнии. Нужна пересдача и 7.0."],
+"UCLA":["Калифорния, Лос-Анджелес","топ-20","да","Мечта","Очень сильный вуз, Лос-Анджелес. Нужна пересдача, дорого."],
+"UC San Diego":["Калифорния, Сан-Диего","топ-15","да","Мечта","Топ-15 CS, сильный ML. Нужна пересдача."],
+"UC Santa Barbara":["Калифорния, Санта-Барбара","топ-40","нет","Не стоит","Хороший CS, но retake не принимают, а исходного мало."],
+"UC Santa Cruz":["Калифорния, Санта-Круз (рядом с долиной)","топ-75","нет","Стоит подать","Retake принимают официально, близко к Кремниевой долине."],
+"UCF (Central Florida)":["Флорида, Орландо","топ-100","нет","Запасной","Нужна пересдача, CS средний."],
+"UNLV":["Невада, Лас-Вегас","ниже 100","нет","Не стоит","CS слабый."],
+"University at Buffalo":["Нью-Йорк, Буффало","топ-50","нет","Запасной","Много программ по AI, баллы проходят. Холодно."],
+"University of Arizona":["Аризона, Тусон","топ-75","нет","Не стоит","Retake не принимают, исходного мало."],
+"University of Chicago":["Иллинойс, Чикаго","топ-30","да","Мечта","Очень престижный, сильная программа по Data Science. Retake принимают."],
+"University of Colorado Boulder":["Колорадо, Боулдер","топ-50","нет","Стоит подать","Хороший CS, баллы проходят, красивый город."],
+"University of Florida":["Флорида, Гейнсвилл","топ-50","нет","Не стоит","CS требует 7.5."],
+"University of Georgia":["Джорджия, Атенс","топ-100","нет","Стоит подать","Retake принимают официально, есть AI-институт."],
+"University of Hawaii at Manoa":["Гавайи, Гонолулу","ниже 100","нет","Не стоит","Retake принимают, но CS слабый и далеко."],
+"University of Houston":["Техас, Хьюстон","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"University of Illinois Chicago":["Иллинойс, Чикаго","топ-75","нет","Запасной","Хороший вариант в большом городе. Нужен retake."],
+"UIUC (Urbana-Champaign)":["Иллинойс, Урбана-Шампейн","топ-5","да","Не стоит","Топ-5 CS, но retake не принимают, а в исходном speaking 5.5."],
+"University of Iowa":["Айова, Айова-Сити","топ-100","нет","Запасной","Нужна пересдача, CS средний."],
+"University of Maryland":["Мэриленд, Колледж-Парк (у Вашингтона)","топ-15","нет","Главная цель","Топ-15 CS. Retake принимают официально, это редкость."],
+"UMass Amherst":["Массачусетс, Амхерст","топ-20","нет","Главная цель","Очень сильный AI/ML, известная школа Manning CICS. Исходного 6.5 хватает."],
+"University of Miami":["Флорида, Майами","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"University of Michigan":["Мичиган, Энн-Арбор","топ-10","да","Главная цель","Топ-10 CS. Минимум Rackham 6.5, исходного хватает."],
+"University of Minnesota":["Миннесота, Миннеаполис","топ-40","нет","Стоит подать","Хороший CS, баллы проходят. Очень холодная зима."],
+"University of Missouri":["Миссури, Колумбия","топ-100","нет","Не стоит","CS слабый."],
+"University of Nebraska-Lincoln":["Небраска, Линкольн","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"University of Nevada, Reno":["Невада, Рино","ниже 100","нет","Не стоит","CS слабый."],
+"UNC Chapel Hill":["Сев. Каролина, Чапел-Хилл","топ-30","нет","Не стоит","Хороший вуз, но retake не принимают."],
+"University of Notre Dame":["Индиана, Саут-Бенд","топ-75","нет","Запасной","Престижный вуз, но CS небольшой."],
+"University of Pennsylvania":["Пенсильвания, Филадельфия","топ-20","да","Мечта","Лига плюща, сильный AI. Рекомендуют 7.5."],
+"University of Pittsburgh":["Пенсильвания, Питтсбург","топ-75","нет","Не стоит","Для CS нужен writing 6.5."],
+"University of Rochester":["Нью-Йорк, Рочестер","топ-75","нет","Запасной","Хорошая программа по Data Science, но нужно уточнить минимум."],
+"University of South Carolina":["Юж. Каролина, Колумбия","ниже 100","нет","Не стоит","CS слабый."],
+"University of South Florida":["Флорида, Тампа","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"University of Tennessee, Knoxville":["Теннесси, Ноксвилл","топ-100","нет","Запасной","Баллы проходят, CS средний."],
+"UT Austin":["Техас, Остин","топ-10","нет","Главная цель","Топ-10 CS, сильный AI. Минимум 6.5, исходного хватает. Остин — быстро растущий IT-хаб."],
+"University of Utah":["Юта, Солт-Лейк-Сити","топ-50","нет","Стоит подать","Хороший CS, баллы проходят, недорогой город."],
+"University of Virginia":["Вирджиния, Шарлотсвилл","топ-50","нет","Не стоит","Нужно 6.5 по каждой секции."],
+"University of Washington":["Вашингтон, Сиэтл","топ-10","да","Не стоит","Топ-10 и Сиэтл, но retake не принимают."],
+"UW-Madison":["Висконсин, Мэдисон","топ-20","около 100","Не стоит","Сильный CS, но retake не принимают."],
+"Vanderbilt University":["Теннесси, Нэшвилл","топ-75","нет","Запасной","Престижный вуз, CS средний. Нужны 7.0."],
+"Virginia Tech":["Вирджиния, Блэксберг","топ-40","нет","Стоит подать","Хороший инженерный вуз, баллы проходят."],
+"WashU (St. Louis)":["Миссури, Сент-Луис","топ-50","нет","Стоит подать","Очень престижный частный вуз, баллы проходят."],
+"Yale University":["Коннектикут, Нью-Хейвен","топ-30","да","Мечта","Лига плюща, но CS меньше, чем у конкурентов. Retake не берут."]
+};
+// [дата для сортировки, дата текстом, детали, источник]
+const DL={
+"Ohio State University":["2026-11-14","14 ноября 2026 / 15 декабря 2026","MS CSE. 14 ноября — если хотите претендовать на fellowship, 15 декабря — обычный дедлайн. Иностранцев принимают только на осень.","https://cse.osu.edu/prospective-students/graduate/cse-graduate-admissions"],
+"Purdue University":["2026-12-01","1 декабря 2026","MS Computer Science, Fall 2027.","https://www.cs.purdue.edu/graduate/admission/steps.html"],
+"Arizona State University":["2026-12-01","1 декабря (приоритетный, ежегодно)","MS Computer Science, Tempe. После этой даты заявки рассматривают, пока есть места.","https://degrees.asu.edu/masters-phd/major/ASU00/ESCOMSCMS/computer-science-ms"],
+"Virginia Tech":["2026-12-01","1 декабря (ежегодно)","MS Computer Science, Blacksburg и Alexandria. На сайте пока дата прошлого цикла, 1 декабря 2025.","https://website.cs.vt.edu/academic/graduate/future-grads/ApplicationDeadlines.html"],
+"NYU":["2026-12-01","1 декабря / 15 февраля","Tandon MS CS: 1 декабря — приоритетное рассмотрение, 15 февраля — финальный дедлайн.","https://engineering.nyu.edu/admissions/graduate/apply/application-deadlines"],
+"University of Maryland":["2026-12-04","4 декабря 2026","MS Computer Science, только осенний набор.","https://www.cs.umd.edu/grad/apply"],
+"UT Austin":["2026-12-15","15 декабря (ежегодно)","MS Computer Science. Рекомендации нужны до 20 декабря.","https://www.cs.utexas.edu/faq/632"],
+"UMass Amherst":["2026-12-15","15 декабря 2026","MS Computer Science, on-campus.","https://www.cics.umass.edu/academics/ms-computer-science-campus"],
+"University of Utah":["2026-12-15","15 декабря 2026","MS Computer Science и MS Computing, Fall 2027.","https://www.cs.utah.edu/graduate/prospective-students/admissions/graduate-application/"],
+"UC Irvine":["2026-12-15","15 декабря 2026","Master of Computer Science (MCS) для иностранных студентов.","https://mcs.ics.uci.edu/faq/"],
+"NC State University":["2026-12-15","15 декабря (ежегодно)","Магистратура CS, для иностранцев только осенний набор.","https://csc.ncsu.edu/academics/graduate/application-deadlines/"],
+"Penn State":["2026-12-20","20 декабря (ежегодно)","Магистратура CSE. К этой дате должны прийти все документы.","https://www.eecs.psu.edu/students/graduate/EECS-graduate-deadlines.aspx"],
+"University of Minnesota":["2027-01-05","5 января / 1 марта","MS Computer Science: 5 января — приоритетный дедлайн, 1 марта — финальный.","https://cse.umn.edu/cs/ms-admissions"],
+"University of Michigan":["2027-01-15","15 января (ежегодно)","Магистратура CSE, осенний набор.","https://www.engin.umich.edu/admissions-aid/graduate-professional/deadlines/"],
+"Texas A&M University":["2027-01-15","15 января (ежегодно)","MS и MCS Computer Science, очно. Подача через EngineeringCAS.","https://engineering.tamu.edu/cse/admissions-and-aid/graduate-admissions/index.html"],
+"University of Colorado Boulder":["2027-01-15","15 января 2027","Все магистратуры CS, включая AI.","https://www.colorado.edu/cs/admissions/graduate-admissions/how-apply/how-apply-masters-program"],
+"UC Santa Cruz":["2027-01-26","26 января 2027","MS Computer Science & Engineering. У MS NLP свои дедлайны: 2 февраля и 1 апреля.","https://graduateadmissions.ucsc.edu/application-deadlines/"],
+"Duke University":["2027-02-01","1 февраля 2027","MS Computer Science. Interdisciplinary Data Science — до 28 января.","https://gradschool.duke.edu/admissions/application-deadlines/"],
+"Rutgers (New Brunswick)":["2027-02-01","1 февраля (ежегодно)","MS Computer Science, дедлайн для иностранных студентов.","https://grad.rutgers.edu/academics/programs/computer-science"],
+"Rice University":["2027-02-10","10 февраля / 1 мая 2027","MCS и MDS очно: 10 февраля — для рассмотрения на стипендию, 1 мая — дедлайн для иностранцев.","https://csweb.rice.edu/academics/graduate-programs/admission/graduate-program-application"],
+"WashU (St. Louis)":["2027-03-01","31 декабря / 1 марта","Магистратуры McKelvey Engineering: 31 декабря — early decision, 1 марта — обычный дедлайн.","https://engineering.washu.edu/academics/graduate-admissions/deadlines.html"],
+"Indiana University Bloomington":["2027-03-01","1 марта 2027","MS CS и MS Data Science, дедлайн для иностранцев.","https://luddy.iu.edu/admissions/graduate/index.html"],
+"University of Georgia":["2027-04-15","15 апреля (ежегодно)","School of Computing, дедлайн для иностранцев.","https://www.cs.uga.edu/graduate-admissions"],
+"Northeastern University":["2027-06-15","15 июня 2027","Khoury: MS CS, DS, AI. Рассмотрение идёт по мере поступления, поэтому лучше подать рано.","https://www.khoury.northeastern.edu/apply/masters-apply/"]
+};
+const MON=["","янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
+document.getElementById("dl").innerHTML=Object.entries(DL).sort((a,b)=>a[1][0].localeCompare(b[1][0])).map(([n,d])=>`<tr><td class="num" style="white-space:normal;min-width:140px"><b>${esc(d[1])}</b></td><td class="uni">${esc(n)}</td><td class="note">${esc(d[2])} <a href="${esc(d[3])}" target="_blank" rel="noopener">источник</a></td></tr>`).join("");
+const VC={"Главная цель":"v-main","Стоит подать":"v-go","Мечта":"v-dream","Запасной":"v-back","Не стоит":"v-skip"};
+const LBL={ok:["Проходите","p-ok"],chk:["Уточнить","p-chk"],no:["Не проходите","p-no"]};
+const tb=document.getElementById("rows");
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+D.sort((a,b)=>a[0].localeCompare(b[0]));
+tb.innerHTML=D.map(r=>{const [n,o,s,osr,st,note,src]=r;const host=src.replace(/^https?:\/\//,"").split("/")[0];
+const m=M[n]||["—","—","—","Запасной",""];
+return `<tr data-s="${st}" data-v="${m[3]}" data-n="${esc(n.toLowerCase())}"><td class="uni">${esc(n)}</td><td class="why"><span class="v ${VC[m[3]]}">${m[3]}</span><br>${esc(m[4])}</td><td>${esc(m[0])}</td><td class="num">${esc(m[1])}</td><td>${esc(m[2])}</td><td class="num">${esc(o)}</td><td>${esc(s)}</td><td>${esc(osr)}</td><td><span class="pill ${LBL[st][1]}">${LBL[st][0]}</span></td><td class="note">${esc(note)}</td><td><a href="${esc(src)}" target="_blank" rel="noopener">${esc(host)}</a></td></tr>`}).join("");
+["ok","chk","no"].forEach(k=>document.getElementById("c-"+k).textContent=D.filter(r=>r[4]===k).length);
+let f="all",v=null;const q=document.getElementById("q");
+function apply(){const t=q.value.trim().toLowerCase();tb.querySelectorAll("tr").forEach(tr=>{tr.hidden=!((f==="all"||tr.dataset.s===f)&&(!v||tr.dataset.v===v)&&(!t||tr.dataset.n.includes(t)))})}
+const btns=document.querySelectorAll("[data-f],[data-v]");
+btns.forEach(b=>b.addEventListener("click",()=>{f=b.dataset.f||"all";v=b.dataset.v||null;btns.forEach(x=>x.setAttribute("aria-pressed",x===b));apply()}));
+q.addEventListener("input",apply);
+</script>
+
 </html>
